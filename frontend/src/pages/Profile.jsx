@@ -52,7 +52,7 @@ function Profile() {
       const uploadRes =
         await axios.post(
 
-          "http://localhost:5000/api/upload/profile",
+          "https://employee-management-system-5fj7.onrender.com/api/upload/profile",
 
           formData
 
@@ -63,7 +63,7 @@ function Profile() {
 
       await axios.put(
 
-        "http://localhost:5000/api/auth/photo/" +
+        "https://employee-management-system-5fj7.onrender.com/api/auth/photo/" +
           userId,
 
         {
@@ -103,7 +103,7 @@ function Profile() {
 
       await axios.put(
 
-        "http://localhost:5000/api/auth/profile/" +
+        "https://employee-management-system-5fj7.onrender.com/api/auth/profile/" +
           userId,
 
         {
