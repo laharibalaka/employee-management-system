@@ -12,77 +12,55 @@ dest: "uploads/",
 });
 
 // ================= ADD EMPLOYEE =================
-
 router.post("/add", async (req, res) => {
   console.log("BODY:", req.body);
 
-try {
+  try {
+    const { name, email, baseSalary } = req.body;
 
+    const existingEmployee = await Employee.findOne({ email });
 
-const {
-  name,
-  email,
-  baseSalary,
-} = req.body;
+    if (existingEmployee) {
+      return res.status(400).json("Employee already exists");
+    }
 
-const existingEmployee =
-  await Employee.findOne({ email });
+    const existingUser = await User.findOne({ email });
 
-if (existingEmployee) {
+    if (existingUser) {
+      return res.status(400).json("User already exists");
+    }
 
-  return res
-    .status(400)
-    .json("Employee already exists");
+    const tempPassword =
+      name.split(" ")[0] +
+      "@" +
+      Math.floor(1000 + Math.random() * 9000);
 
-}
+    const hashedPassword = await bcrypt.hash(
+      tempPassword,
+      10
+    );
 
-const existingUser =
-  await User.findOne({ email });
+    const emp = new Employee({
+      name,
+      email,
+      baseSalary,
+    });
 
-if (existingUser) {
+    await emp.save();
 
-  return res
-    .status(400)
-    .json("User already exists");
+    const user = new User({
+      name,
+      email,
+      password: hashedPassword,
+      role: "employee",
+    });
 
-}
+    await user.save();
 
-const tempPassword =
-  name.split(" ")[0] +
-  "@" +
-  Math.floor(
-    1000 + Math.random() * 9000
-  );
-
-const hashedPassword =
-  await bcrypt.hash(
-    tempPassword,
-    10
-  );
-
-const emp = new Employee({
-
-  name,
-  email,
-  baseSalary,
-
-});
-await emp.save();
-
-const user = new User({
-  name,
-  email,
-  password: hashedPassword,
-  role: "employee",
-});
-
-await user.save();
-
-await sendEmail(
-  email,
-  "Welcome to EMS PRO",
-  `Hello ${name},
-
+    const emailSent = await sendEmail(
+      email,
+      "Welcome to EMS PRO",
+      `Hello ${name},
 
 Your employee account has been created.
 
@@ -96,24 +74,21 @@ Please login and change your password.
 
 Regards,
 EMS PRO Team`
-);
+    );
 
+    res.json({
+      success: true,
+      message: "Employee Added Successfully",
+      emailSent,
+    });
 
-res.json(
-  "Employee Added & Email Sent"
-);
-
-
-} catch (err) {
-
-
-console.log(err);
-
-res.status(500).json(err);
-
-
-}
-
+  } catch (err) {
+    console.log("ADD EMPLOYEE ERROR:", err);
+    res.status(500).json({
+      success: false,
+      message: err.message,
+    });
+  }
 });
 
 // ================= IMPORT EMPLOYEES FROM EXCEL =================
