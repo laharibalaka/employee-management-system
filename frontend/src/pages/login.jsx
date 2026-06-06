@@ -20,6 +20,8 @@ function Login({ role }) {
   const handleSubmit = async (e) => {
 
     e.preventDefault();
+    console.log("Email:", email);
+console.log("Password:", password);
 
     try {
 
