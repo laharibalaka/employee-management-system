@@ -11,7 +11,7 @@ function LeaveList() {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/leave/all"
+        "https://employee-management-system-5fj7.onrender.com/api/leave/all"
       );
 
       setData(res.data);
@@ -32,7 +32,7 @@ function LeaveList() {
     try {
 
    await axios.put(
-  "http://localhost:5000/api/leave/update/" + id,
+  "https://employee-management-system-5fj7.onrender.com/api/leave/update/" + id,
   { status }
 );
 

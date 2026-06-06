@@ -32,7 +32,7 @@ try {
 
   await axios.post(
 
-    "http://localhost:5000/api/employee/add",
+    "https://employee-management-system-5fj7.onrender.com/api/employee/add",
 
     {
       name,
@@ -87,7 +87,7 @@ try {
   const res =
     await axios.post(
 
-      "http://localhost:5000/api/employee/import",
+      "https://employee-management-system-5fj7.onrender.com/api/employee/import",
 
       formData,
 

@@ -25,7 +25,7 @@ function AddSalary() {
 
       const res =
         await axios.get(
-          "http://localhost:5000/api/employee/all"
+          "https://employee-management-system-5fj7.onrender.com/api/employee/all"
         );
 
       setEmployees(
@@ -61,7 +61,7 @@ function AddSalary() {
         const res =
           await axios.post(
 
-            "http://localhost:5000/api/salary/generate-payroll",
+            "https://employee-management-system-5fj7.onrender.com/api/salary/generate-payroll",
 
             {
               employeeId,

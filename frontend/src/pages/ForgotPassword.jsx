@@ -19,7 +19,7 @@ function ForgotPassword() {
     try {
 
       await axios.post(
-        "http://localhost:5000/api/auth/send-otp",
+        "https://employee-management-system-5fj7.onrender.com/api/auth/send-otp",
         {
           email,
         }

@@ -16,7 +16,7 @@ function MyAttendance() {
       try {
 
         const res = await axios.get(
-          "http://localhost:5000/api/attendance/all"
+          "https://employee-management-system-5fj7.onrender.com/api/attendance/all"
         );
 
         const myAttendance =

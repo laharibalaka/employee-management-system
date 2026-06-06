@@ -39,7 +39,7 @@ function ChartPage() {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/stats"
+        "https://employee-management-system-5fj7.onrender.com/api/stats"
       );
 
       setStats(res.data);

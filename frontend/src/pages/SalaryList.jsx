@@ -10,7 +10,7 @@ function SalaryList() {
   const loadSalary = async () => {
 
     const res = await axios.get(
-      "http://localhost:5000/api/salary/all"
+      "https://employee-management-system-5fj7.onrender.com/api/salary/all"
     );
 
     setData(res.data);
@@ -21,7 +21,7 @@ function SalaryList() {
   const deleteSalary = async (id) => {
 
     await axios.delete(
-      "http://localhost:5000/api/salary/delete/" + id
+      "https://employee-management-system-5fj7.onrender.com/api/salary/delete/" + id
     );
 
     loadSalary();

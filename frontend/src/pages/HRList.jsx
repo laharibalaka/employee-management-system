@@ -11,7 +11,7 @@ function HRList() {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/auth/hrs"
+        "https://employee-management-system-5fj7.onrender.com/api/auth/hrs"
       );
 
       setHrs(res.data);

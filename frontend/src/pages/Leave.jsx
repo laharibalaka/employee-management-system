@@ -15,7 +15,7 @@ function Leave() {
     try {
 
       await axios.post(
-        "http://localhost:5000/api/leave/apply",
+        "https://employee-management-system-5fj7.onrender.com/api/leave/apply",
         {
           userId,
           name,

@@ -12,7 +12,7 @@ function Attendance() {
     try {
 
       await axios.post(
-        "http://localhost:5000/api/attendance/mark",
+        "https://employee-management-system-5fj7.onrender.com/api/attendance/mark",
         {
           name,
           status,

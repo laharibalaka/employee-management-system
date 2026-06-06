@@ -30,7 +30,7 @@ const loadLeaves = async () => {
   try {
 
     const res = await axios.get(
-      "http://localhost:5000/api/leave/my/" +
+      "https://employee-management-system-5fj7.onrender.com/api/leave/my/" +
         userId
     );
 
@@ -51,7 +51,7 @@ const loadAttendance = async () => {
   try {
 
     const res = await axios.get(
-      "http://localhost:5000/api/attendance/all"
+      "https://employee-management-system-5fj7.onrender.com/api/attendance/all"
     );
 
     const myAttendance =
@@ -88,7 +88,7 @@ const loadSalary = async () => {
   try {
 
     const res = await axios.get(
-      "http://localhost:5000/api/salary/all"
+      "https://employee-management-system-5fj7.onrender.com/api/salary/all"
     );
 
     const mySalary =

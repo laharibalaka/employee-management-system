@@ -32,7 +32,7 @@ const loadNotifications = async () => {
  
   try {
     const res = await fetch(
-      "http://localhost:5000/api/leave/all"
+      "https://employee-management-system-5fj7.onrender.com/api/leave/all"
     );
 
     const data = await res.json();

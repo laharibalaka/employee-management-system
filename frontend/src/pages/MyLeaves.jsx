@@ -15,7 +15,7 @@ function MyLeaves() {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/leave/my/" +
+        "https://employee-management-system-5fj7.onrender.com/api/leave/my/" +
           userId
       );
 

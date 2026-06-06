@@ -24,9 +24,8 @@ function Login({ role }) {
 console.log("Password:", password);
 
     try {
-
-      const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+const res = await axios.post(
+  "https://employee-management-system-5fj7.onrender.com/api/auth/login",
         {
           email,
           password,

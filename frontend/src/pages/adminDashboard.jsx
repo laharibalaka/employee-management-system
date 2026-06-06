@@ -42,7 +42,7 @@ function AdminDashboard() {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/stats"
+        "https://employee-management-system-5fj7.onrender.com/api/stats"
       );
 
       setStats(res.data);
@@ -60,7 +60,7 @@ function AdminDashboard() {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/leave/all"
+        "https://employee-management-system-5fj7.onrender.com/api/leave/all"
       );
 
       const pending = res.data.filter(
@@ -82,7 +82,7 @@ function AdminDashboard() {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/employee/all"
+        "https://employee-management-system-5fj7.onrender.com/api/employee/all"
       );
 
       setEmployees(res.data);
@@ -99,7 +99,7 @@ function AdminDashboard() {
   try {
 
     const res = await axios.get(
-      "http://localhost:5000/api/auth/hrs"
+      "https://employee-management-system-5fj7.onrender.com/api/auth/hrs"
     );
 
     setHrCount(res.data.length);

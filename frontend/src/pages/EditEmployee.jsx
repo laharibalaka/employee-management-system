@@ -17,7 +17,7 @@ function EditEmployee() {
   const loadEmployee = async () => {
 
     const res = await axios.get(
-      "http://localhost:5000/api/employee/all"
+      "https://employee-management-system-5fj7.onrender.com/api/employee/all"
     );
 
     const emp = res.data.find(
@@ -37,7 +37,7 @@ function EditEmployee() {
   const updateEmployee = async () => {
 
     await axios.put(
-      "http://localhost:5000/api/employee/update/" + id,
+      "https://employee-management-system-5fj7.onrender.com/api/employee/update/" + id,
       {
         name,
         email,

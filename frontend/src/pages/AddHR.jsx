@@ -18,7 +18,7 @@ const addHR = async () => {
 try {
 
   await axios.post(
-    "http://localhost:5000/api/auth/register",
+    "https://employee-management-system-5fj7.onrender.com/api/auth/register",
     {
       name,
       email,
@@ -67,7 +67,7 @@ try {
   const res =
     await axios.post(
 
-      "http://localhost:5000/api/auth/import-hrs",
+      "https://employee-management-system-5fj7.onrender.com/api/auth/import-hrs",
 
       formData,
 

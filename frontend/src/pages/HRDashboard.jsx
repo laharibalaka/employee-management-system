@@ -30,7 +30,7 @@ function HRDashboard() {
 
         const empRes =
           await axios.get(
-            "http://localhost:5000/api/employee/all"
+            "https://employee-management-system-5fj7.onrender.com/api/employee/all"
           );
 
         setEmployees(
@@ -41,7 +41,7 @@ function HRDashboard() {
 
         const attRes =
           await axios.get(
-            "http://localhost:5000/api/attendance/all"
+            "https://employee-management-system-5fj7.onrender.com/api/attendance/all"
           );
 
         const presentCount =
@@ -59,7 +59,7 @@ function HRDashboard() {
 
         const leaveRes =
           await axios.get(
-            "http://localhost:5000/api/leave/all"
+            "https://employee-management-system-5fj7.onrender.com/api/leave/all"
           );
 
         const pending =

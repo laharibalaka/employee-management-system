@@ -23,7 +23,7 @@ function Employees() {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/employee/all"
+        "https://employee-management-system-5fj7.onrender.com/api/employee/all"
       );
 
       setData(res.data);
@@ -49,7 +49,7 @@ function Employees() {
     try {
 
       await axios.delete(
-        "http://localhost:5000/api/employee/delete/" + id
+        "https://employee-management-system-5fj7.onrender.com/api/employee/delete/" + id
       );
 
       alert("Employee Deleted");

@@ -14,7 +14,7 @@ function MySalary() {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/salary/all"
+        "https://employee-management-system-5fj7.onrender.com/api/salary/all"
       );
 
       const mySalary =

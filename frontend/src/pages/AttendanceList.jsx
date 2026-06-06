@@ -11,7 +11,7 @@ function AttendanceList() {
     try {
 
       const res = await axios.get(
-        "http://localhost:5000/api/attendance/all"
+        "https://employee-management-system-5fj7.onrender.com/api/attendance/all"
       );
 
       setData(res.data);
@@ -35,7 +35,7 @@ function AttendanceList() {
   const exportAttendance = () => {
 
     window.open(
-      "http://localhost:5000/api/attendance/export",
+      "https://employee-management-system-5fj7.onrender.com/api/attendance/export",
       "_blank"
     );
 
