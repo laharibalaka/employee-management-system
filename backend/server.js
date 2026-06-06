@@ -25,9 +25,6 @@ app.use(express.json());
 // MongoDB Connection
 // ===============================
 
-console.log("================================");
-console.log("Mongo URL:", process.env.MONGODB_URL);
-console.log("================================");
 
 mongoose
   .connect(process.env.MONGODB_URL, {
