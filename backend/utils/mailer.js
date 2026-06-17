@@ -1,14 +1,13 @@
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
+  host: "smtp-relay.brevo.com",
+  port: 587,
+  secure: false,
   auth: {
-    user: "laharibalaka9@gmail.com",
-    pass: "pikc utek ueoh mcit",
+    user: "af1f4d001@smtp-brevo.com",
+    pass: process.env.BREVO_SMTP_KEY,
   },
-  connectionTimeout: 30000,
 });
 
 const sendEmail = async (to, subject, text) => {
@@ -20,7 +19,7 @@ const sendEmail = async (to, subject, text) => {
       text,
     });
 
-    console.log("✅ Email Sent Successfully");
+    console.log("✅ Email Sent");
     return true;
   } catch (err) {
     console.log("❌ Email Error:", err);
