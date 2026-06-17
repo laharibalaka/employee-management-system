@@ -12,7 +12,9 @@ const transporter = nodemailer.createTransport({
 
 const sendEmail = async (to, subject, text) => {
   try {
-    await transporter.sendMail({
+    console.log("📧 Sending email to:", to);
+
+    const info = await transporter.sendMail({
       from: "laharibalaka9@gmail.com",
       to,
       subject,
@@ -20,6 +22,8 @@ const sendEmail = async (to, subject, text) => {
     });
 
     console.log("✅ Email Sent");
+    console.log("Message ID:", info.messageId);
+
     return true;
   } catch (err) {
     console.log("❌ Email Error:", err);
