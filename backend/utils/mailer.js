@@ -15,18 +15,18 @@ const sendEmail = async (to, subject, text) => {
     console.log("📧 Sending email to:", to);
 
     const info = await transporter.sendMail({
-      from: "laharibalaka9@gmail.com",
+      from: '"EMS PRO" <laharibalaka9@gmail.com>',
       to,
       subject,
       text,
     });
 
     console.log("✅ Email Sent");
-    console.log("Message ID:", info.messageId);
+    console.log("📨 Message ID:", info.messageId);
 
     return true;
   } catch (err) {
-    console.log("❌ Email Error:", err);
+    console.error("❌ Email Error:", err);
     return false;
   }
 };

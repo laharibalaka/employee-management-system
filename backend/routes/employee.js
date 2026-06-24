@@ -57,6 +57,8 @@ router.post("/add", async (req, res) => {
 
     await user.save();
 
+    console.log("🚀 About to send email");
+
     const emailSent = await sendEmail(
       email,
       "Welcome to EMS PRO",
@@ -76,6 +78,8 @@ Regards,
 EMS PRO Team`
     );
 
+    console.log("📨 sendEmail returned:", emailSent);
+
     res.json({
       success: true,
       message: "Employee Added Successfully",
@@ -84,6 +88,7 @@ EMS PRO Team`
 
   } catch (err) {
     console.log("ADD EMPLOYEE ERROR:", err);
+
     res.status(500).json({
       success: false,
       message: err.message,
