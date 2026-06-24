@@ -30,37 +30,40 @@ function Profile() {
   const userId =
     localStorage.getItem("userId");
 
-  const uploadPhoto = async () => {
+const uploadPhoto = async () => {
 
-    if (!photo) {
+  if (!photo) {
 
-      alert("Please select a photo");
-      return;
+    alert("Please select a photo");
+    return;
 
-    }
+  }
 
-    try {
+  try {
 
-      const formData =
-        new FormData();
+    const formData = new FormData();
 
-      formData.append(
-        "photo",
-        photo
+    formData.append(
+      "photo",
+      photo
+    );
+
+    const uploadRes =
+      await axios.post(
+
+        "https://employee-management-system-5fj7.onrender.com/api/upload/profile",
+
+        formData
+
       );
 
-      const uploadRes =
-        await axios.post(
+    const imageUrl =
+      uploadRes.data.photoUrl;
 
-          "https://employee-management-system-5fj7.onrender.com/api/upload/profile",
+    console.log("📸 IMAGE URL:", imageUrl);
+    console.log("👤 USER ID:", userId);
 
-          formData
-
-        );
-
-      const imageUrl =
-        uploadRes.data.photoUrl;
-
+    const updateRes =
       await axios.put(
 
         "https://employee-management-system-5fj7.onrender.com/api/auth/photo/" +
@@ -72,30 +75,38 @@ function Profile() {
 
       );
 
-      localStorage.setItem(
-        "photo",
-        imageUrl
-      );
+    console.log(
+      "✅ UPDATE RESPONSE:",
+      updateRes.data
+    );
 
-      setPhotoUrl(
-        imageUrl
-      );
+    localStorage.setItem(
+      "photo",
+      imageUrl
+    );
 
-      alert(
-        "Photo Uploaded Successfully"
-      );
+    setPhotoUrl(
+      imageUrl
+    );
 
-    } catch (err) {
+    alert(
+      "Photo Uploaded Successfully"
+    );
 
-      console.log(err);
+  } catch (err) {
 
-      alert(
-        "Photo Upload Failed"
-      );
+    console.log(
+      "❌ PHOTO UPLOAD ERROR:",
+      err
+    );
 
-    }
+    alert(
+      "Photo Upload Failed"
+    );
 
-  };
+  }
+
+};
 
   const updateProfile = async () => {
 
