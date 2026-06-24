@@ -276,25 +276,36 @@ res.status(500).json(err);
 // ================= DELETE EMPLOYEE =================
 
 router.delete("/delete/:id", async (req, res) => {
+  try {
+    const employee = await Employee.findById(req.params.id);
 
-try {
+    if (!employee) {
+      return res.status(404).json("Employee not found");
+    }
 
+    // Delete corresponding user account
+    await User.deleteOne({
+      email: employee.email,
+    });
 
-await Employee.findByIdAndDelete(
-  req.params.id
-);
+    // Delete employee record
+    await Employee.findByIdAndDelete(
+      req.params.id
+    );
 
-res.json("Employee Deleted");
+    res.json({
+      success: true,
+      message: "Employee Deleted Successfully",
+    });
 
+  } catch (err) {
+    console.log("DELETE ERROR:", err);
 
-} catch (err) {
-
-
-res.status(500).json(err);
-
-
-}
-
+    res.status(500).json({
+      success: false,
+      message: err.message,
+    });
+  }
 });
 
 // ================= UPDATE EMPLOYEE =================
