@@ -66,6 +66,10 @@ const res = await axios.post(
         "email",
         res.data.email
       );
+      localStorage.setItem(
+  "photo",
+  res.data.photo || ""
+);
 
       if (res.data.role === "admin") {
 
